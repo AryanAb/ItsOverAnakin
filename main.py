@@ -23,8 +23,8 @@ def index():
 
 @app.route("/login", methods=["POST"])
 def log_in():
-    email = request.form["email_up"]
-    password = request.form["pass_up"]
+    email = request.form["email_in"]
+    password = request.form["pass_in"]
     user = auth.sign_in_with_email_and_password(email, password)
     session["user"] = user
     return redirect(url_for("home"))
@@ -32,17 +32,19 @@ def log_in():
 
 @app.route("/signup", methods=["POST"])
 def sign_up():
-    email = request.form["email_in"]
-    password = request.form["pass_in"]
-    auth.create_user_with_email_and_password()
-    user = auth.sign_in_with_email_and_password(email, password)
-    session["user"] = user
-    return redirect(url_for("home"))
+    email = request.form["email_up"]
+    pass1 = request.form["pass1_up"]
+    pass2 = request.form["pass2_up"]
+    if pass1 == pass2:
+        auth.create_user_with_email_and_password(email, pass1)
+        user = auth.sign_in_with_email_and_password(email, pass1)
+        session["user"] = user
+        return redirect(url_for("home"))
 
 
 @app.route("/home")
 def home():
-    render_template("home.html")
+    return render_template("home.html")
 
 
 if __name__ == "__main__":
