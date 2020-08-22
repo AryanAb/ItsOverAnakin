@@ -1,51 +1,56 @@
-<!DOCTYPE html>
-<html style="font-size: 16px;">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Login">
-    <meta name="description" content="">
-    <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Login</title>
-    <link rel="stylesheet" href="../static/nicepage.css" media="screen">
-<link rel="stylesheet" href="../static/Login.css" media="screen">
-    <script class="u-script" type="text/javascript" src="../static/jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="../static/nicepage.js" defer=""></script>
-    
-    
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-  </head>
-  <body class="u-body"><header class="u-clearfix u-grey-80 u-header u-header" id="sec-f1d6"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a  class="u-image u-logo u-image-1">
-          <img src="../static/images/ioa.png" class="u-logo-image u-logo-image-1" data-image-width="64">
-        </a>
-        <h1 class="u-text u-text-default u-title u-text-1">Login</h1>
-      </div></header>
-    <section class="u-align-left u-clearfix u-grey-80 u-section-1" id="sec-645e">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-form u-form-1">
-          <form method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" name="loginform">
-            <div class="u-form-email u-form-group u-form-group-1">
-              <label for="email" class="u-label">email</label>
-              <input type="email" placeholder="Email" id="email_in" name="email_in" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
-            </div>
-            <div class="u-form-group u-form-group-2">
-              <label for="password" class="u-label">password</label>
-              <input type="password" placeholder="Password" id="pass_in" name="pass_in" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
-            </div>
-            <div class="u-align-left u-form-group u-form-submit u-form-group-3">
-              <a class="u-border-3 u-border-palette-4-dark-2 u-border-radius-50 u-btn u-btn-round u-btn-submit u-button-style u-palette-4-dark-1 u-btn-1">Submit</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-    
-    
-    <footer class="u-align-left u-clearfix u-footer u-grey-80 u-footer" id="sec-cee6"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <p class="u-text u-text-default u-text-1">Aryan Abed-Estafani<br>Daksh Malhotra<br>Andy Li
-        </p>
-      </div></footer>
-  </body>
-</html>
+<html style="font-size: 16px;" class="u-responsive-lg"><head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Login">
+	<meta name="description" content="">
+	<meta name="page_type" content="np-template-header-footer-from-plugin">
+	<title>Login</title>
+	<link rel="stylesheet" href="../static/nicepage.css" media="screen">
+	<link rel="stylesheet" href="../static/Login.css" media="screen">
+
+	<link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+</head>
+<body class="u-body" data-gr-c-s-loaded="true"><header class="u-clearfix u-grey-80 u-header u-header" id="sec-f1d6"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+	<a class="u-image u-logo u-image-1">
+		<img src="../static/images/ioa.png" class="u-logo-image u-logo-image-1" data-image-width="64">
+	</a>
+	<h1 class="u-text u-text-default u-title u-text-1">Login</h1>
+</div></header>
+<section class="u-align-left u-clearfix u-grey-80 u-section-1" id="sec-645e">
+	<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+		<div class="u-form u-form-1">
+			<form method="POST" action="/login" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" id="loginform">
+				<div class="u-form-email u-form-group u-form-group-1">
+					<label for="email" class="u-label">email</label>
+					<input type="email" placeholder="Email" id="email_in" name="email_in" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+				</div>
+				<div class="u-form-group u-form-group-2">
+					<label for="password" class="u-label">password</label>
+					<input type="password" placeholder="Password" id="pass_in" name="pass_in" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+				</div>
+				<div class="u-align-left u-form-group u-form-submit u-form-group-3">
+					<a onclick="fun()" class="u-border-3 u-border-palette-4-dark-2 u-border-radius-50 u-btn u-btn-round u-btn-submit u-button-style u-palette-4-dark-1 u-btn-1">Submit</a>
+					<input type="submit" value="submit" class="u-form-control-hidden" onclick="fun()">
+				</div>
+				<script>
+                    function fun(){
+                        console.log('hi');
+                        document.getElementById("loginform").submit();
+                    }
+				</script>
+			</form>
+		</div>
+	</div>
+</section>
+
+
+<footer class="u-align-left u-clearfix u-footer u-grey-80 u-footer" id="sec-cee6"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+	<p class="u-text u-text-default u-text-1">Aryan Abed-Estafani<br>Daksh Malhotra<br>Andy Li
+	</p>
+</div></footer>
+
+
+
+
+
+</body></html>
