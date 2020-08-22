@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="It's Over Anakin">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Page 1</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Page-1.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 2.23.0, nicepage.com">
+
+
+
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"url": "index.html",
+		"logo": "images/ioa.png"
+}</script>
+    <meta property="og:title" content="Page 1">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#478ac9">
+    <link rel="canonical" href="index.html">
+    <meta property="og:url" content="index.html">
+    <style>
+   img {
+      height: 500px;
+
+   }
+   </style>
+  </head>
+  <body data-home-page="Page-1.html" data-home-page-title="Page 1" class="u-body"><header class="u-black u-clearfix u-header u-header" id="sec-f50a"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <a  class="u-image u-logo u-image-1">
+          <img src="images/ioa.png" class="u-logo-image u-logo-image-1" data-image-width="104">
+        </a>
+      </div></header>
+    <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="" id="sec-6a1d">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h1 class="u-text u-text-default u-title u-text-1">It's Over Anakin</h1>
+        <p class="u-large-text u-text u-text-default u-text-variant u-text-2">You have been working for x hours, it is time to take a break!</p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-grey-90 u-section-2" id="sec-d5f6">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h1 class="u-text u-text-1">Here is a prequel meme for you to relax! Click to generate one!</h1>
+        <br>
+        <img id="obiwan" src="" ></img>
+        <a onclick="generate()" class="u-btn u-button-style u-btn-1">Generate</a>
+      </div>
+    </section>
+
+
+    <footer class="u-align-center u-clearfix u-footer u-grey-10 u-footer" id="sec-652e"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Hello there!</p>
+      </div></footer>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script >
+      function generate() {
+      axios.get('https://andylican.api.stdlib.com/ItsOverAnakin@dev/')
+        .then((response) => {
+          //num is the nth picture in search results - 1
+          var size = (response.data.giphy.gifs).length;
+          console.log(size);
+          num = Math.floor(Math.random() * size);
+          var link = response.data.giphy.gifs[num].images.fixed_height.url;
+          console.log(link);
+          document.getElementById('obiwan').src = link;
+        });
+      }
+      </script>
+  </body>
+</html>
