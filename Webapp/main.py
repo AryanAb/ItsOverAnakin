@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 app.config['SECRET_KEY'] = "afAYG8o5y4waP;JNGSOI205O3"
 
-firebase = pyrebase.initialize_app(json.load(open("app/firebase.json")))
+firebase = pyrebase.initialize_app(json.load(open("Webapp/app/firebase.json")))
 auth = firebase.auth()
 db = firebase.database()
 
@@ -28,6 +28,32 @@ def log_in():
     user = auth.sign_in_with_email_and_password(email, password)
     session["user"] = user
     return redirect(url_for("home"))
+
+
+# @app.route("/login/<email_pass>")
+# def log_in_API(email_pass):
+#     print(email_pass)
+#     email = email_pass.split('?')[0]
+#     password = email_pass.split('?')[1]
+#     user = auth.sign_in_with_email_and_password(email, password)
+#     response = {
+#         "success": True,
+#         "token": "randomeToken"
+#     }
+#     print(email)
+#     print(password)
+#     return jsonify(response)
+
+@app.route("/login_api")
+def login_api():
+    email = request.args.get("email")
+    password = request.args.get("pass")
+    user = auth.sign_in_with_email_and_password(email, password)
+    response = {
+        "success": True,
+        "token": "randomToken"
+    }
+    return jsonify(response)
 
 
 @app.route("/signup", methods=["POST"])
