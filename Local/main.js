@@ -1,7 +1,6 @@
 const path = require("path")
 
 const { app, BrowserWindow, Menu, Tray, nativeImage } = require('electron')
-const psList = require('ps-list');
 
 function createWindow() {
 	const win = new BrowserWindow({
