@@ -1,5 +1,8 @@
 from flask import Flask, render_template, redirect, request, jsonify, url_for, session
 import os
+import random
+import string
+from datetime import timedelta
 import pyrebase
 import json
 
@@ -7,6 +10,7 @@ app = Flask(__name__)
 
 app.secret_key = os.urandom(24)
 app.config['SECRET_KEY'] = "afAYG8o5y4waP;JNGSOI205O3"
+app.permanent_session_lifetime = timedelta(minutes=60)
 
 firebase = pyrebase.initialize_app(json.load(open("Webapp/app/firebase.json")))
 auth = firebase.auth()
@@ -30,28 +34,16 @@ def log_in():
     return redirect(url_for("home"))
 
 
-# @app.route("/login/<email_pass>")
-# def log_in_API(email_pass):
-#     print(email_pass)
-#     email = email_pass.split('?')[0]
-#     password = email_pass.split('?')[1]
-#     user = auth.sign_in_with_email_and_password(email, password)
-#     response = {
-#         "success": True,
-#         "token": "randomeToken"
-#     }
-#     print(email)
-#     print(password)
-#     return jsonify(response)
-
 @app.route("/login_api")
 def login_api():
     email = request.args.get("email")
     password = request.args.get("pass")
     user = auth.sign_in_with_email_and_password(email, password)
+    token = db.child("tokens").child(user["email"].split('@')[0]).get().val()
+    print(token)
     response = {
         "success": True,
-        "token": "randomToken"
+        "token": token
     }
     return jsonify(response)
 
@@ -65,12 +57,17 @@ def sign_up():
         auth.create_user_with_email_and_password(email, pass1)
         user = auth.sign_in_with_email_and_password(email, pass1)
         session["user"] = user
+        db.child("tokens").child(email.split('@')[0]).set({"token": create_token()})
         return redirect(url_for("home"))
 
 
 @app.route("/home")
 def home():
     return render_template("home.html")
+
+
+def create_token(size=16, chars=string.ascii_lowercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
 
 
 if __name__ == "__main__":
