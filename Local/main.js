@@ -17,6 +17,7 @@ function createWindow() {
 
 	// load the html
 	win.loadFile('index.html');
+	win.webContents.openDevTools()
 
 	// add the icon to the tray
 	let tray = new Tray(nativeImage.createFromPath(path.join(__dirname, "obi wan.png")));
@@ -31,14 +32,14 @@ function createWindow() {
 
 app.whenReady().then(createWindow);
 
-function logIn() {
-	console.log("pressed");
-	let email = document.getElementById("email").value;
-	let pass = document.getElementById("pass").value;
-	axios.get("http://127.0.0.1:5000/login_api?email=" + email + "&pass=" + pass).then(response => {
-		token = response.data.token;
-		console.log(token);
-	}).catch(err => {
-		console.error(err);
-	})
-}
+// function logIn() {
+// 	console.log("pressed");
+// 	let email = document.getElementById("email").value;
+// 	let pass = document.getElementById("pass").value;
+// 	axios.get("http://127.0.0.1:5000/login_api?email=" + email + "&pass=" + pass).then(response => {
+// 		token = response.data.token;
+// 		console.log(token);
+// 	}).catch(err => {
+// 		console.error(err);
+// 	})
+// }
