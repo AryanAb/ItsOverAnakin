@@ -68,6 +68,9 @@ def sign_up():
 def home():
     return render_template("home.html")
 
+@app.route("/break")
+def restbreak():
+    return render_template("itsoveranakin.html")
 
 def create_token(size=16, chars=string.ascii_lowercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
