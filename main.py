@@ -10,6 +10,7 @@ app.config['SECRET_KEY'] = "afAYG8o5y4waP;JNGSOI205O3"
 
 firebase = pyrebase.initialize_app(json.load(open("app/firebase.json")))
 auth = firebase.auth()
+db = firebase.database()
 
 
 @app.route("/")
