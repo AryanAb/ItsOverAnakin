@@ -12,7 +12,7 @@ app.secret_key = os.urandom(24)
 app.config['SECRET_KEY'] = "afAYG8o5y4waP;JNGSOI205O3"
 app.permanent_session_lifetime = timedelta(minutes=60)
 
-firebase = pyrebase.initialize_app(json.load(open("app/firebase.json")))
+firebase = pyrebase.initialize_app(json.load(open("Webapp/app/firebase.json")))
 auth = firebase.auth()
 db = firebase.database()
 
@@ -21,11 +21,11 @@ db = firebase.database()
 @app.route("/index")
 def index():
     if "user" not in session:
-        return redirect(url_for("login"))
+        return render_template("index.html")
     return redirect(url_for("home"))
 
 
-@app.route("/login", methods=["POST","GET"])
+@app.route("/login", methods=["POST", "GET"])
 def log_in():
     if request.method == "GET":
         return render_template("Login.html")
@@ -75,4 +75,3 @@ def create_token(size=16, chars=string.ascii_lowercase + string.digits):
 
 if __name__ == "__main__":
     app.run(debug=True)
-
