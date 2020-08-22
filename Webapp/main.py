@@ -21,17 +21,20 @@ db = firebase.database()
 @app.route("/index")
 def index():
     if "user" not in session:
-        return render_template("index.html")
+        return redirect(url_for("login"))
     return redirect(url_for("home"))
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/login", methods=["POST","GET"])
 def log_in():
-    email = request.form["email_in"]
-    password = request.form["pass_in"]
-    user = auth.sign_in_with_email_and_password(email, password)
-    session["user"] = user
-    return redirect(url_for("home"))
+    if request.method == "GET":
+        return render_template("Login.html")
+    if request.method == "POST":
+        email = request.form["email_in"]
+        password = request.form["pass_in"]
+        user = auth.sign_in_with_email_and_password(email, password)
+        session["user"] = user
+        return redirect(url_for("home"))
 
 
 @app.route("/login_api")
@@ -72,3 +75,4 @@ def create_token(size=16, chars=string.ascii_lowercase + string.digits):
 
 if __name__ == "__main__":
     app.run(debug=True)
+

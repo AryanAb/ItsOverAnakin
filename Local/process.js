@@ -1,4 +1,5 @@
 const psList = require('ps-list');
+const ps = require('ps-node')
 
 const processDiv = document.getElementById("processes");
 
@@ -10,5 +11,11 @@ const processDiv = document.getElementById("processes");
         let proc = await document.createElement("h5");
         proc.innerText = item.name;
         processDiv.appendChild(proc);
+    }
+
+    for (let item of processes) {
+        if (item.pid === 4516) {
+            console.log(item)
+        }
     }
 })();

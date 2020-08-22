@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "electron": "^9.2.1",
-    "ps-list": "^7.2.0"
+    "ps-list": "^7.2.0",
+    "ps-node": "^0.1.6"
   }
 }

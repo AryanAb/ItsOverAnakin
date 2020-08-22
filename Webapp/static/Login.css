@@ -1,0 +1,10 @@
+.u-section-1 .u-sheet-1 {min-height: 570px}
+.u-section-1 .u-form-1 {height: 244px; width: 443px; margin: 60px auto}
+.u-section-1 .u-form-group-1 {margin-left: 0}
+.u-section-1 .u-form-group-2 {margin-left: 0}
+.u-section-1 .u-btn-1 {background-image: none; border-style: solid; font-size: 1.875rem; font-weight: 700; padding: 0 10px} 
+
+@media (max-width: 575px){ .u-section-1 .u-form-1 {width: 340px}
+.u-section-1 .u-form-group-1 {width: 100%}
+.u-section-1 .u-form-group-2 {width: 100%}
+.u-section-1 .u-form-group-3 {width: 100%} }
