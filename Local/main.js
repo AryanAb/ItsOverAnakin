@@ -15,7 +15,6 @@ function createWindow() {
 
 	// load the html
 	win.loadFile('index.html');
-	win.webContents.openDevTools()
 
 	// add the icon to the tray
 	let tray = new Tray(nativeImage.createFromPath(path.join(__dirname, "ioa.png")));
