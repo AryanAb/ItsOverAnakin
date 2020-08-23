@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-const axios = require("axios");
-
-document.getElementById("btn").addEventListener("click", event => {
-=======
 const axios = require('axios')
 
 document.getElementById("submit").addEventListener("click", event => {
->>>>>>> master
 	event.preventDefault();
 	let email = document.getElementById("email_in").value;
 	let pass = document.getElementById("pass_in").value;

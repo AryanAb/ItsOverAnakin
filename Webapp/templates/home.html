@@ -3,28 +3,26 @@
 
 <head>
 	<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 	<link rel="stylesheet" type="text/css" href="../static/home.css">
 	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename=home.css)}}">-->
 	<style>
+		.col-lg-6 {
+			padding: 100px;
 
-.col-lg-6
- {
-padding: 100px;
-
-}
-</style>
+		}
+	</style>
 
 
 </head>
@@ -34,7 +32,7 @@ padding: 100px;
 	<!-- Side navigation -->
 	<div class="sidenav">
 		<a href="#">Charts</a>
-		<a href="#"></a>
+		<a href="#">Apps</a>
 		<a href="#"></a>
 		<a href="#"></a>
 	</div>
@@ -43,211 +41,240 @@ padding: 100px;
 	<div class="main">
 		<h1>Welcome {{name}}</h1>
 	</div>
+	<br>
+	<br>
+	<hr>
+	<br>
 	<div class="main">
+		<h2>Charts</h2>
 		<div class="row">
 			<div class="col-lg-6">
-	<canvas id="chart1" width="200" height="200"></canvas>
-</div>
-<div class="col-lg-6">
-	<canvas id="chart2" width="200" height="200"></canvas>
-</div>
-</div>
-<div class="row">
-	<div class="col-lg-6">
-		<canvas id="chart3" width="200" height="200"></canvas>
+				<canvas id="chart1" width="200" height="200"></canvas>
+			</div>
+			<div class="col-lg-6">
+				<canvas id="chart2" width="200" height="200"></canvas>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<canvas id="chart3" width="200" height="200"></canvas>
+			</div>
+			<div class="col-lg-6">
+				<canvas id="chart4" width="200" height="200"></canvas>
+			</div>
+		</div>
+
+		<br>
+		<hr>
+		<br>
+
+		<div class="main">
+			<h2>Apps</h2>
+			<br>
+			<br>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Dropdown button
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</div>
+			</div>
+		</div>
+
+
+
 	</div>
-	<div class="col-lg-6">
-		<canvas id="chart4" width="200" height="200"></canvas>
-	</div>
-</div>
-</div >
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<script>
 
 
-	var ctx = document.getElementById('chart1').getContext('2d');
-	var myChart = new Chart(ctx, {
-	    type: 'bar',
-	    data: {
-	        labels: ['Healthy', 'Normal', 'Tired', 'Exhausted', 'Wants to Quit'],
-	        datasets: [{
-	            label: '# of Responses',
-	            data: [2, 4, 10, 11, 7, 3],
-	            backgroundColor: [
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(75, 192, 192, 0.2)',
-	                'rgba(153, 102, 255, 0.2)',
-	                'rgba(255, 159, 64, 0.2)'
-	            ],
-	            borderColor: [
-	                'rgba(255, 99, 132, 1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(75, 192, 192, 1)',
-	                'rgba(153, 102, 255, 1)',
-	                'rgba(255, 159, 64, 1)'
-	            ],
-	            borderWidth: 1
-	        }]
-	    },
-	    options: {
+		var ctx = document.getElementById('chart1').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Healthy', 'Normal', 'Tired', 'Exhausted', 'Wants to Quit'],
+				datasets: [{
+					label: '# of Responses',
+					data: [2, 4, 10, 11, 7, 3],
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
 
-	        scales: {
-						yAxes: [{
-							ticks: {
+				scales: {
+					yAxes: [{
+						ticks: {
 							beginAtZero: true
 						},
-							scaleLabel: {
-								display: true,
-								labelString: "# of people"
-							}
-						}],
-						xAxes: [{
-							scaleLabel: {
-								display: true,
-								labelString: "Feeling"
-							}
-						}]
+						scaleLabel: {
+							display: true,
+							labelString: "# of people"
+						}
+					}],
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: "Feeling"
+						}
+					}]
 
-	        },
-					title: {
-						display: true,
-						text: 'How overworked people feel after their shift'
+				},
+				title: {
+					display: true,
+					text: 'How overworked people feel after their shift'
+				}
+			}
+		});
+		var ctx = document.getElementById('chart2').getContext('2d');
+		var myLineChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: ['0', '2', '4', '6', '8', '10', '12'],
+				datasets: [
+					{
+						data: [100, 95, 85, 70, 50, 25, 0],
+						borderColor: '#af90ca',
+						backgroundColor: '#af90ca',
+						fill: false,
+						label: 'Productivity (%)',
+						lineTension: 0
 					}
-	    }
-	});
-	var ctx = document.getElementById('chart2').getContext('2d');
-	var myLineChart = new Chart(ctx, {
-		type: 'line',
-  data: {
-    labels: ['0','2', '4', '6', '8', '10','12'],
-    datasets: [
-      {
-        data: [100, 95, 85, 70, 50, 25,0],
-        borderColor: '#af90ca',
-        backgroundColor: '#af90ca',
-        fill: false,
-        label: 'Productivity (%)',
-        lineTension: 0
-      }
-    ]
-  },
-  options: {
-		title: {
-			display: true,
-			text: 'Work productivity over time (h)'
-		},
-    scales: {
-			yAxes: [{
-				ticks: {
-				beginAtZero: true
+				]
 			},
-				scaleLabel: {
+			options: {
+				title: {
 					display: true,
-					labelString: "Work productivity (%)"
+					text: 'Work productivity over time (h)'
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						},
+						scaleLabel: {
+							display: true,
+							labelString: "Work productivity (%)"
+						}
+					}],
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: "Time (h)"
+						}
+					}]
+
 				}
-			}],
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: "Time (h)"
-				}
-			}]
-
-    }
-  }
-});
-
-	var ctx = document.getElementById('chart3').getContext('2d');
-
-
-		var config = new Chart(ctx,{
-			type: 'doughnut',
-     data: {
-       labels: ["Changed my life", "Helped a lot", "Helped somewhat", "Helped a bit", "Didn't help"],
-       datasets: [
-         {
-
-           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-           data: [20,40,30,7,3]
-         }
-       ]
-     },
-     options: {
-       title: {
-         display: true,
-         text: 'User feedback of our app'
-       }
-     }
+			}
 		});
 
-var ctx = document.getElementById('chart4').getContext('2d');
-var bubble = new Chart(ctx,{
-	type: 'bubble',
-    data: {
+		var ctx = document.getElementById('chart3').getContext('2d');
 
-      datasets: [
-        {
-          label: ["Heavy-Users"],
-          backgroundColor: "rgba(255,221,50,0.2)",
-          borderColor: "rgba(255,221,50,1)",
-          data: [{
-            x: 5,
-            y: 9,
-            r: 10
-          }]
-        }, {
-          label: ["Moderate-Users"],
-          backgroundColor: "rgba(60,186,159,0.2)",
-          borderColor: "rgba(60,186,159,1)",
-          data: [{
-            x: 3,
-            y: 8,
-            r: 14
-          }]
-        }, {
-          label: ["Light-Users"],
-          backgroundColor: "rgba(0,0,0,0.2)",
-          borderColor: "#000",
-          data: [{
-            x: 1,
-            y: 4,
-            r: 18
-          }]
-        }, {
-          label: ["Non-Users"],
-          backgroundColor: "rgba(193,46,12,0.2)",
-          borderColor: "rgba(193,46,12,1)",
-          data: [{
-            x: 0,
-            y: 1,
-            r: 50
-          }]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Amount of work breaks and overall happiness for how frequently people use our app'
-      }, scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: "Happiness (out of 10)"
-          }
-        }],
-        xAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: "Amount of work breaks (per day)"
-          }
-        }]
-      }
-    }
-	});
+
+		var config = new Chart(ctx, {
+			type: 'doughnut',
+			data: {
+				labels: ["Changed my life", "Helped a lot", "Helped somewhat", "Helped a bit", "Didn't help"],
+				datasets: [
+					{
+
+						backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+						data: [20, 40, 30, 7, 3]
+					}
+				]
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'User feedback of our app'
+				}
+			}
+		});
+
+		var ctx = document.getElementById('chart4').getContext('2d');
+		var bubble = new Chart(ctx, {
+			type: 'bubble',
+			data: {
+
+				datasets: [
+					{
+						label: ["Heavy-Users"],
+						backgroundColor: "rgba(255,221,50,0.2)",
+						borderColor: "rgba(255,221,50,1)",
+						data: [{
+							x: 5,
+							y: 9,
+							r: 10
+						}]
+					}, {
+						label: ["Moderate-Users"],
+						backgroundColor: "rgba(60,186,159,0.2)",
+						borderColor: "rgba(60,186,159,1)",
+						data: [{
+							x: 3,
+							y: 8,
+							r: 14
+						}]
+					}, {
+						label: ["Light-Users"],
+						backgroundColor: "rgba(0,0,0,0.2)",
+						borderColor: "#000",
+						data: [{
+							x: 1,
+							y: 4,
+							r: 18
+						}]
+					}, {
+						label: ["Non-Users"],
+						backgroundColor: "rgba(193,46,12,0.2)",
+						borderColor: "rgba(193,46,12,1)",
+						data: [{
+							x: 0,
+							y: 1,
+							r: 50
+						}]
+					}
+				]
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'Amount of work breaks and overall happiness for how frequently people use our app'
+				}, scales: {
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: "Happiness (out of 10)"
+						}
+					}],
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: "Amount of work breaks (per day)"
+						}
+					}]
+				}
+			}
+		});
 	</script>
 </body>
 
