@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, jsonify, url_for, session
+from flask import Flask, render_template, redirect, request, jsonify, url_for, session, send_file
 import os
 import random
 import string
@@ -99,6 +99,9 @@ def restbreak():
     seconds = request.args.get("s", default=0, type=int)
     return render_template("itsoveranakin.html", hours=hours, minutes=minutes, seconds=seconds)
 
+@app.route("/download", methods=["GET"])
+def download():
+    return render_template("download.html")
 
 def create_token(size=16, chars=string.ascii_lowercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
