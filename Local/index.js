@@ -6,6 +6,7 @@ document.getElementById("btn").addEventListener("click", event => {
 		token = response.data.token;
 		console.log(token);
 		localStorage.setItem("token", token);
+		window.location.href = "process.html";
 	}).catch(err => {
 		console.error(err);
 	});

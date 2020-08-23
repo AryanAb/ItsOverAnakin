@@ -34,7 +34,7 @@ const apps = [
 ];
 
 window.setInterval(getProcesses, 5000);
-//getProcesses();
+window.setInterval(updateInfo, 600000);
 
 async function getProcesses() {
     console.log("runs");
@@ -72,22 +72,6 @@ async function getProcesses() {
 
 }
 
-data = [
-    {
-        "app": "name",
-        "time": "delta time"
-    },
-    {
-        "app": "name",
-        "time": "delta time"
-    }
-]
+function updateInfo() {
 
-data1 = [
-    {
-        "app": "name",
-        "time": "1",
-        "start time": "12:00",
-        "end time": "null"
-    }
-]
+}
