@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 document.getElementById("btn").addEventListener("click", event => {
 	event.preventDefault();
 	let email = document.getElementById("email").value;

@@ -51,7 +51,7 @@ def login_api():
     return jsonify(response)
 
 
-@app.route("/signup", methods=["GET","POST"])
+@app.route("/signup", methods=["GET", "POST"])
 def sign_up():
     if request.method == "GET":
         return render_template("Register.html")
@@ -66,9 +66,13 @@ def sign_up():
             db.child("tokens").child(email.split('@')[0]).set({"token": create_token()})
             return redirect("/home")
 
-@app.route("/update_api", methods=["POST"])
-def update_api():
-    pass
+
+@app.route("/update_api/<token>", methods=["POST"])
+def update_api(token):
+    data = request.json["data"]
+    print(token)
+    # print(data)
+    return '', 204
 
 
 @app.route("/home")
@@ -78,10 +82,10 @@ def home():
 
 @app.route("/break")
 def restbreak():
-    hours = request.args.get("h", default=0,type=int)
-    minutes = request.args.get("m", default=0,type=int)
-    seconds = request.args.get("s", default=0,type=int)
-    return render_template("itsoveranakin.html", hours=hours, minutes=minutes,seconds=seconds)
+    hours = request.args.get("h", default=0, type=int)
+    minutes = request.args.get("m", default=0, type=int)
+    seconds = request.args.get("s", default=0, type=int)
+    return render_template("itsoveranakin.html", hours=hours, minutes=minutes, seconds=seconds)
 
 
 def create_token(size=16, chars=string.ascii_lowercase + string.digits):

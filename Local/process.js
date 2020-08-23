@@ -1,5 +1,6 @@
 const psList = require('ps-list');
-const ps = require('ps-node');
+//const ps = require('ps-node');
+const axios = require("axios");
 
 const apps = [
     {
@@ -34,7 +35,8 @@ const apps = [
 ];
 
 window.setInterval(getProcesses, 5000);
-window.setInterval(updateInfo, 600000);
+updateInfo();
+//window.setInterval(updateInfo, 600000);
 
 async function getProcesses() {
     console.log("runs");
@@ -73,5 +75,11 @@ async function getProcesses() {
 }
 
 function updateInfo() {
-
+    axios.post("http://127.0.0.1:5000/update_api/" + localStorage.getItem("token"), {
+        data: apps
+    }).then(response => {
+        console.log(response);
+    }).catch(err => {
+        console.error(err);
+    })
 }

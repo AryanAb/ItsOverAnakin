@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 const { app, BrowserWindow, Menu, Tray, nativeImage } = require("electron");
-const axios = require("axios");
 
 var token;
 
