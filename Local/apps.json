@@ -1,0 +1,30 @@
+[
+	{
+		"name": "chrome.exe",
+		"time": 0,
+		"start": [],
+		"end": [],
+		"running": false
+	},
+	{
+		"name": "excel.exe",
+		"time": 0,
+		"start": [],
+		"end": [],
+		"running": false
+	},
+	{
+		"name": "Spotify.exe",
+		"time": 0,
+		"start": [],
+		"end": [],
+		"running": false
+	},
+	{
+		"name": "Discord.exe",
+		"time": 0,
+		"start": [],
+		"end": [],
+		"running": false
+	}
+]

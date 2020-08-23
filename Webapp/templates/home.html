@@ -15,8 +15,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-	<link rel="stylesheet" type="text/css" href="../static/home.css">
-	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename=home.css)}}">-->
+	<!--<link rel="stylesheet" type="text/css" href="../static/home.css">-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
 	<style>
 		.col-lg-6 {
 			padding: 100px;
@@ -31,10 +31,10 @@
 
 	<!-- Side navigation -->
 	<div class="sidenav">
-		<a href="#">Charts</a>
+		<a href="#">Admin Charts</a>
+		<a href="#">Personal Charts</a>
+		<a href="#">Summary</a>
 		<a href="#">Apps</a>
-		<a href="#"></a>
-		<a href="#"></a>
 	</div>
 
 	<!-- Page content -->
@@ -46,21 +46,18 @@
 	<hr>
 	<br>
 	<div class="main">
-		<h2>Charts</h2>
+		<h2>Admin Charts</h2>
 		<div class="row">
 			<div class="col-lg-6">
 				<canvas id="chart1" width="200" height="200"></canvas>
 			</div>
 			<div class="col-lg-6">
-				<canvas id="chart2" width="200" height="200"></canvas>
+				<canvas id="chart4" width="200" height="200"></canvas>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-6">
 				<canvas id="chart3" width="200" height="200"></canvas>
-			</div>
-			<div class="col-lg-6">
-				<canvas id="chart4" width="200" height="200"></canvas>
 			</div>
 		</div>
 
@@ -69,25 +66,97 @@
 		<br>
 
 		<div class="main">
-			<h2>Apps</h2>
+			<h2>Personal Charts</h2>
+			<div class="row">
+				<div class="col-lg-6">
+					<canvas id="chart2" width="200" height="200"></canvas>
+				</div>
+				<div class="col-lg-6">
+					<canvas id="chart5" width="200" height="200"></canvas>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<hr>
+		<br>
+
+		<div class="main">
+			<h2>Summary</h2>
 			<br>
 			<br>
 			<div class="dropdown">
 				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Dropdown button
+					{{apps[0][1].name}}
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<a class="dropdown-item" href="#">Something else here</a>
+					{% for app in apps %}
+					<a class="dropdown-item"
+						onclick="document.getElementById('dropdownMenuButton').textContent = '{{app[1].name}}'; let tables = document.getElementsByClassName('tables'); for (let i = 0; i < tables.length; i++) {tables[i].style.display = 'none';} document.getElementById('{{app[1].name}}').style.display = 'block';">{{app[1].name}}</a>
+					{% endfor %}
 				</div>
+
 			</div>
+
+			<br>
+			<br>
+
+			{% for app in apps %}
+			<div style="display: none;" id="{{app[1].name}}" class="tables">
+				<h3>Total Time Spent: {{app[1].time}}</h3>
+				<br>
+				<br>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Started</th>
+							<th scope="col">Ended</th>
+							<th scope="col">Time Spent</th>
+						</tr>
+					</thead>
+					{% for i in range(app[1].start|length) %}
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>{{i}}</td>
+							<td>{{app[1].start[i]}}</td>
+							{% if 'end' in app[1]%}
+							<td>{{app[1].end[i]}}</td>
+							{% endif %}
+							<td>0</td>
+						</tr>
+					</tbody>
+					{% endfor %}
+				</table>
+			</div>
+			{% endfor %}
+
+		</div>
+
+		<br>
+		<hr>
+		<br>
+
+		<div class="main">
+			<h2>Running Apps</h2>
+			<ul>
+				{% for app in apps %}
+				{% if app.running is sameas True %}
+				<li>
+					<app class="name">{{app[1].name}}</app>
+				</li>
+				{% endif %}
+				{% endfor %}
+			</ul>
 		</div>
 
 
 
+
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<script>
 
@@ -275,6 +344,48 @@
 				}
 			}
 		});
+
+		var ctx = document.getElementById('chart5').getContext('2d');
+		var myLineChart = new Chart(ctx, {
+			type: 'line',
+			data: [{
+				x: new Date(),
+				y: 1
+			}, {
+				x: new Date(),
+				y: 2
+			}],
+			options: {
+				title: {
+					display: true,
+					text: 'Hours Worked Per Day'
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						},
+						scaleLabel: {
+							display: true,
+							labelString: "Ammount Worked (h)"
+						}
+					}],
+					xAxes: [{
+						type: 'time',
+						time: {
+							unit: 'day'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: "Date"
+						}
+					}]
+
+				}
+			}
+		});
+
+
 	</script>
 </body>
 

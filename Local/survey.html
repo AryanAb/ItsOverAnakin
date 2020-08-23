@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+	<h1>Survey</h1>
+	<form action="http://127.0.0.1:5000/survey" method="POST">
+		<h3>Productivity</h3>
+		<label for="productivity">How Productive Do You Think You Are?</label>
+		<input type="number" name="productivity" id="productivity" min="0" max="100">
+		<br>
+		<br>
+		<h3>Overwork</h3>
+		<input type="radio" name="overwork" id="healthy" value="healthy">
+		<label for="healthy">Healthy</label><br>
+		<input type="radio" name="overwork" id="normal" value="normal">
+		<label for="normal">Normal</label><br>
+		<input type="radio" name="overwork" id="tired" value="tired">
+		<label for="tired">Tired</label><br>
+		<input type="radio" name="overwork" id="exhausted" value="exhausted">
+		<label for="exhausted">Exhausted</label><br>
+		<input type="radio" name="overwork" id="wantstoQuit" value="wantstoQuit">
+		<label for="wantstoQuit">Wants to Quit</label><br>
+		<br>
+		<h3>Happiness</h3>
+		<label for="happy">How Happy Are You?</label><br>
+		<input type="range" name="happiness" id="happy" min="0" max="10">
+		<br>
+		<br>
+		<h3>Feedback</h3>
+		<input type="radio" name="feedback" id="veryHelpful" value="veryHelpful">
+		<label for="veryHelpful">Very Helpful</label><br>
+		<input type="radio" name="feedback" id="somewhatHelpful" value="somewhatHelpful">
+		<label for="somewhatHelpful">Somewhat Helpful</label><br>
+		<input type="radio" name="feedback" id="aBitHelpful" value="aBitHelpful">
+		<label for="aBitHelpful">A Bit Helpful</label><br>
+		<input type="radio" name="feedback" id="notHelpful" value="notHelpful">
+		<label for="notHelpful">Not Helpful</label><br>
+		<br>
+		<br>
+		<input type="submit" onclick="">
+	</form>
+</body>
+
+</html>

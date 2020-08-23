@@ -42,11 +42,10 @@ def login_api():
     email = request.args.get("email")
     password = request.args.get("pass")
     user = auth.sign_in_with_email_and_password(email, password)
-    token = db.child("tokens").child(user["email"].split('@')[0]).get().val()
-    print(token)
+    time = db.child(session["user"]["email"].split('@')[0]).child("time").get().val()
     response = {
         "success": True,
-        "token": token
+        "productive_time": time
     }
     return jsonify(response)
 
@@ -67,17 +66,30 @@ def sign_up():
             return redirect("/home")
 
 
-@app.route("/update_api/<token>", methods=["POST"])
-def update_api(token):
+@app.route("/update_api/<email>", methods=["POST"])
+def update_api(email):
     data = request.json["data"]
-    print(token)
-    # print(data)
+    print(email.split('@')[0])
+    db.child(email.split('@')[0]).set(data)
+    return '', 204
+
+
+@app.route("/survey", methods=["POST"])
+def survey():
+    prod = request.form["productivity"]
+    overwork = request.form["overwork"]
+    happiness = request.form["happiness"]
+    feedback = request.form["feedback"]
+    # db.child("survey").get()
+    # TODO: Add recieved feedback to the database
     return '', 204
 
 
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    apps = list(db.child(session["user"]["email"].split('@')[0]).get().val().items())
+    print(apps[0][1])
+    return render_template("home.html", apps=apps)
 
 
 @app.route("/break")
