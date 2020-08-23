@@ -31,10 +31,10 @@
 
 	<!-- Side navigation -->
 	<div class="sidenav">
-		<a href="#">Admin Charts</a>
-		<a href="#">Personal Charts</a>
-		<a href="#">Summary</a>
-		<a href="#">Apps</a>
+		<a href="#admin">Admin Charts</a>
+		<a href="#personal">Personal Charts</a>
+		<a href="#summary">Summary</a>
+		<a href="#apps">Apps</a>
 	</div>
 
 	<!-- Page content -->
@@ -46,7 +46,7 @@
 	<hr>
 	<br>
 	<div class="main">
-		<h2>Admin Charts</h2>
+		<h2 id="admin">Admin Charts</h2>
 		<div class="row">
 			<div class="col-lg-6">
 				<canvas id="chart1" width="200" height="200"></canvas>
@@ -66,7 +66,7 @@
 		<br>
 
 		<div class="main">
-			<h2>Personal Charts</h2>
+			<h2 id="personal">Personal Charts</h2>
 			<div class="row">
 				<div class="col-lg-6">
 					<canvas id="chart2" width="200" height="200"></canvas>
@@ -82,7 +82,7 @@
 		<br>
 
 		<div class="main">
-			<h2>Summary</h2>
+			<h2 id="summary">Summary</h2>
 			<br>
 			<br>
 			<div class="dropdown">
@@ -140,7 +140,7 @@
 		<br>
 
 		<div class="main">
-			<h2>Running Apps</h2>
+			<h2 id="apps">Running Apps</h2>
 			<ul>
 				{% for app in apps %}
 				{% if app.running is sameas True %}
