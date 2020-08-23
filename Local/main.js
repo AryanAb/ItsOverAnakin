@@ -49,11 +49,15 @@ app.whenReady().then(() => {
 			event.preventDefault();
 			win.hide();
 		}
-
+		app.quit();
 		return false;
 	});
 
 });
+
+app.on('window-all-closed', () => {
+	app.quit()
+})
 
 function takeSurvey() {
 	const notif = new Notification({
