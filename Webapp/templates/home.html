@@ -2,14 +2,25 @@
 <html>
 
 <head>
-	<title>Anakin</title>
+	<link rel="stylesheet" type="text/css" href="../static/home.css">
+	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename=home.css)}}">-->
 </head>
-<html>
 
 <body>
-	<h1>You are in your account succesfully</h1>
-</body>
 
-</html>
+	<!-- Side navigation -->
+	<div class="sidenav">
+		<a href="#">Charts</a>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+	</div>
+
+	<!-- Page content -->
+	<div class="main">
+		<h1>Welcome {{name}}</h1>
+	</div>
+
+</body>
 
 </html>

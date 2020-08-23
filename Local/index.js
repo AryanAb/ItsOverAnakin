@@ -1,5 +1,3 @@
-console.log("hello world");
-
 document.getElementById("btn").addEventListener("click", event => {
 	event.preventDefault();
 	let email = document.getElementById("email").value;
