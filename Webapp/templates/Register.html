@@ -14,34 +14,38 @@
 	<a class="u-image u-logo u-image-1">
 		<img src="../static/images/ioa.png" class="u-logo-image u-logo-image-1" data-image-width="64">
 	</a>
-	<h1 class="u-text u-text-default u-title u-text-1">Login</h1>
+	<h1 class="u-text u-text-default u-title u-text-1">Sign Up</h1>
 </div></header>
 <section class="u-align-left u-clearfix u-grey-80 u-section-1" id="sec-645e">
 	<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
 		<div class="u-form u-form-1">
-			<form method="POST" action="/login" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" id="loginform">
+			<form method="POST" action="/signup" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" id="signform">
 				<div class="u-form-email u-form-group u-form-group-1">
 					<label for="email" class="u-label">email</label>
-					<input type="email" placeholder="Email" id="email_in" name="email_in" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+					<input type="email" placeholder="Email" id="email_up" name="email_up" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
 				</div>
 				<div class="u-form-group u-form-group-2">
 					<label for="password" class="u-label">password</label>
-					<input type="password" placeholder="Password" id="pass_in" name="pass_in" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+					<input type="password" placeholder="Password" id="pass1_up" name="pass1_up" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+				</div>
+				<div class="u-form-group u-form-group-2">
+					<label for="password" class="u-label">password</label>
+					<input type="password" placeholder="Confirm Password" id="pass2_up" name="pass2_up" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
 				</div>
 				<div class="u-align-left u-form-group u-form-submit u-form-group-3">
-					<a onclick="fun()" class="u-border-3 u-border-palette-4-dark-2 u-border-radius-50 u-btn u-btn-round u-btn-submit u-button-style u-palette-4-dark-1 u-btn-1">Submit</a>
-					<input type="submit" value="submit" class="u-form-control-hidden" onclick="fun()">
+					<a onclick="fun2()" class="u-border-3 u-border-palette-4-dark-2 u-border-radius-50 u-btn u-btn-round u-btn-submit u-button-style u-palette-4-dark-1 u-btn-1">Submit</a>
+					<input type="submit" value="submit" class="u-form-control-hidden" onclick="fun2()">
 				</div>
 				<script>
-                    function fun(){
+                    function fun2(){
                         console.log('hi');
-                        document.getElementById("loginform").submit();
+                        document.getElementById("signform").submit();
                     }
 				</script>
 			</form>
 			<div class="u-align-left u-form-group u-form-submit u-form-group-3">
-				<a href="/signup" class="u-border-3 u-border-palette-4-dark-2 u-border-radius-50 u-btn u-btn-round u-btn-submit u-button-style u-palette-4-dark-1 u-btn-1">SignUp</a>
-				<input type="submit" value="submit" class="u-form-control-hidden" href="/signup">
+				<a href="/login" class="u-border-3 u-border-palette-4-dark-2 u-border-radius-50 u-btn u-btn-round u-btn-submit u-button-style u-palette-4-dark-1 u-btn-1">Login</a>
+				<input type="submit" value="submit" class="u-form-control-hidden" href="/login">
 			</div>
 		</div>
 	</div>
