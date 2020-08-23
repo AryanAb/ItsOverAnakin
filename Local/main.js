@@ -18,7 +18,7 @@ function createWindow() {
 	win.webContents.openDevTools()
 
 	// add the icon to the tray
-	let tray = new Tray(nativeImage.createFromPath(path.join(__dirname, "obi wan.png")));
+	let tray = new Tray(nativeImage.createFromPath(path.join(__dirname, "ioa.png")));
 	tray.setToolTip("It's Over Anakin");
 	const contextMenu = Menu.buildFromTemplate([
 		{ label: 'Open', type: "normal", click() { win.show(); win.focus(); } },

@@ -88,8 +88,7 @@ def survey():
 
 @app.route("/home")
 def home():
-    apps = list(db.child(session["user"]["email"].split('@')[0]).get().val().items())
-    print(apps[0][1])
+    apps = list(db.child(session["user"]["email"].split('@')[0]).get().val())
     return render_template("home.html", apps=apps)
 
 

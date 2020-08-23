@@ -88,12 +88,12 @@
 			<div class="dropdown">
 				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					{{apps[0][1].name}}
+					{{apps[0].name}}
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					{% for app in apps %}
 					<a class="dropdown-item"
-						onclick="document.getElementById('dropdownMenuButton').textContent = '{{app[1].name}}'; let tables = document.getElementsByClassName('tables'); for (let i = 0; i < tables.length; i++) {tables[i].style.display = 'none';} document.getElementById('{{app[1].name}}').style.display = 'block';">{{app[1].name}}</a>
+						onclick="document.getElementById('dropdownMenuButton').textContent = '{{app.name}}'; let tables = document.getElementsByClassName('tables'); for (let i = 0; i < tables.length; i++) {tables[i].style.display = 'none';} document.getElementById('{{app.name}}').style.display = 'block';">{{app.name}}</a>
 					{% endfor %}
 				</div>
 
@@ -103,8 +103,8 @@
 			<br>
 
 			{% for app in apps %}
-			<div style="display: none;" id="{{app[1].name}}" class="tables">
-				<h3>Total Time Spent: {{app[1].time}}</h3>
+			<div style="display: none;" id="{{app.name}}" class="tables">
+				<h3>Total Time Spent: {{app.time}}</h3>
 				<br>
 				<br>
 				<table class="table">
@@ -116,14 +116,14 @@
 							<th scope="col">Time Spent</th>
 						</tr>
 					</thead>
-					{% for i in range(app[1].start|length) %}
+					{% for i in range(app.start|length) %}
 					<tbody>
 						<tr>
 							<th scope="row">1</th>
 							<td>{{i}}</td>
-							<td>{{app[1].start[i]}}</td>
+							<td>{{app.start[i]}}</td>
 							{% if 'end' in app[1]%}
-							<td>{{app[1].end[i]}}</td>
+							<td>{{app.end[i]}}</td>
 							{% endif %}
 							<td>0</td>
 						</tr>
@@ -145,7 +145,7 @@
 				{% for app in apps %}
 				{% if app.running is sameas True %}
 				<li>
-					<app class="name">{{app[1].name}}</app>
+					<app class="name">{{app.name}}</app>
 				</li>
 				{% endif %}
 				{% endfor %}
