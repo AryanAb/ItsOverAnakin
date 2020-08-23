@@ -23,7 +23,7 @@ function createWindow() {
 	const contextMenu = Menu.buildFromTemplate([
 		{ label: 'Open', type: "normal", click() { win.show(); win.focus(); } },
 		{
-			label: 'Dashboard', type: "normal", click() { shell.openExternal("http://127.0.0.1:5000") }
+			label: 'Dashboard', type: "normal", click() { shell.openExternal("https://itsoveranakin.tech") }
 		},
 		{ label: 'Quit', type: "normal", click() { win.removeAllListeners('close'); app.quit(); } }
 	]);

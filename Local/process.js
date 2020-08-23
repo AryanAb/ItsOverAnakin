@@ -47,7 +47,7 @@ async function getProcesses() {
 }
 
 function updateInfo() {
-    axios.post("http://127.0.0.1:5000/update_api/" + localStorage.getItem("email"), {
+    axios.post("https://itsoveranakin.tech/update_api/" + localStorage.getItem("email"), {
         data: apps
     }).then(response => {
         console.log(response);
@@ -76,6 +76,6 @@ function displayTimer() {
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("demo").innerHTML = "IT'S OVER ANAKIN";
-        shell.openExternal("http://127.0.0.1:5000/break")
+        shell.openExternal("https://itsoveranakin.tech/break")
     }
 }
