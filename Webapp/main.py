@@ -37,11 +37,12 @@ def log_in():
         return redirect("/home")
 
 
-@app.route("/login_api")
+@app.route("/login_api", methods=["GET"])
 def login_api():
     email = request.args.get("email")
     password = request.args.get("pass")
     user = auth.sign_in_with_email_and_password(email, password)
+    session["user"] = user
     time = db.child(session["user"]["email"].split('@')[0]).child("time").get().val()
     response = {
         "success": True,
@@ -105,4 +106,4 @@ def create_token(size=16, chars=string.ascii_lowercase + string.digits):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
